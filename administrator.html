@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrator - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur</title>
+  <meta name="description" content="Administrator - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/highlight.css">
+  <!-- Load Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* Administrator page specific styles */
+    .page-title {
+      background-color: #f5f5f5;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 32px;
+      color: #333;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .admin-profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin-image {
+      flex: 0 0 200px;
+    }
+
+    .admin-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .admin-details {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .admin-name {
+      font-size: 28px;
+      color: #b42944;
+      margin-bottom: 10px;
+    }
+
+    .admin-title {
+      font-size: 18px;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .admin-contact {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-item i {
+      width: 20px;
+      color: #b42944;
+    }
+
+    .admin-bio {
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .admin-education {
+      margin-top: 20px;
+    }
+
+    .education-title {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .education-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .education-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .education-list li:before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #b42944;
+    }
+
+    .admin-message {
+      background-color: #fff;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .message-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #b42944;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .message-content {
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .message-content p {
+      margin-bottom: 15px;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      text-align: right;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .admin-profile {
+        flex-direction: column;
+      }
+
+      .admin-image {
+        flex: 0 0 100%;
+        max-width: 250px;
+        margin: 0 auto;
+      }
+
+      .admin-details {
+        text-align: center;
+      }
+
+      .admin-contact {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-container">
+    <!-- Header container: will be loaded using JavaScript -->
+    <div id="header-container"></div>
+
+    <!-- Page title section -->
+    <div class="page-title">
+      <div class="container">
+        <h1>Administrator</h1>
+      </div>
+    </div>
+
+    <!-- Main content section -->
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title">Principal's Office</h2>
+
+        <div class="admin-profile">
+          <div class="admin-image">
+            <img src="https://ext.same-assets.com/2501078162/3068551604.jpeg" alt="Dr. Rajendra S. Jagdale - Principal">
+          </div>
+          <div class="admin-details">
+            <h3 class="admin-name">Dr. Rajendra S. Jagdale</h3>
+            <p class="admin-title">Principal</p>
+            <div class="admin-contact">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>principal@rbnbcollege.edu.in</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+91 2422 222 547</span>
+              </div>
+            </div>
+            <div class="admin-bio">
+              <p>Dr. Rajendra S. Jagdale has been serving as the Principal of R. B. Narayanrao Borawake College since 2018. With over 25 years of experience in higher education, Dr. Jagdale has made significant contributions in the fields of Chemistry, Environmental Science, and Educational Administration.</p>
+            </div>
+            <div class="admin-education">
+              <h4 class="education-title">Education & Qualifications:</h4>
+              <ul class="education-list">
+                <li>Ph.D. in Chemistry from Savitribai Phule Pune University</li>
+                <li>M.Sc. in Organic Chemistry with distinction</li>
+                <li>B.Ed. in Science Education</li>
+                <li>Certificate in Higher Education Management from UGC-HRDC</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-message">
+          <h3 class="message-title">Principal's Message</h3>
+          <div class="message-content">
+            <p>Dear Students, Parents, and Visitors,</p>
+            <p>Welcome to R. B. Narayanrao Borawake College, Shrirampur. Since its establishment in 1960, our institution has been committed to providing quality education and shaping the future of students from all walks of life. As an autonomous college with A+ NAAC accreditation, we take immense pride in our rich legacy and continuous pursuit of excellence.</p>
+            <p>Our institution is deeply committed to the vision of our founder, the esteemed Karmaveer Bhaurao Patil, who believed that education is the most powerful tool for social transformation. In keeping with this vision, we strive to provide our students with not just academic knowledge but also moral values and practical skills to help them succeed in life and contribute meaningfully to society.</p>
+            <p>At RBNB College, we combine traditional teaching methodologies with modern technologies and innovative learning approaches. Our well-qualified faculty, state-of-the-art infrastructure, research facilities, and vibrant campus provide an ideal environment for holistic education and personal growth.</p>
+            <p>I encourage all students to make the most of the opportunities available at our institution and to actively participate in both academic and extracurricular activities. Remember, education is not just about earning a degree; it's about becoming a well-rounded individual who can face the challenges of the future with confidence and contribute to the betterment of society.</p>
+            <p>Together, let us continue the legacy of excellence and social commitment that has been the hallmark of RBNB College.</p>
+            <div class="signature">
+              <p>Sincerely,<br>Dr. Rajendra S. Jagdale<br>Principal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer container: will be loaded using JavaScript -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

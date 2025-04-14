@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur</title>
+  <meta name="description" content="Faculty - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/highlight.css">
+  <!-- Load Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* Faculty page specific styles */
+    .page-title {
+      background-color: #f5f5f5;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 32px;
+      color: #333;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .department-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .dept-tab {
+      padding: 10px 15px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dept-tab:hover {
+      background-color: #e0e0e0;
+    }
+
+    .dept-tab.active {
+      background-color: #b42944;
+      color: white;
+    }
+
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .faculty-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .faculty-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .faculty-image {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .faculty-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .faculty-card:hover .faculty-image img {
+      transform: scale(1.05);
+    }
+
+    .faculty-info {
+      padding: 20px;
+    }
+
+    .faculty-name {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .faculty-title {
+      font-size: 15px;
+      color: #b42944;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .faculty-dept {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .faculty-contact {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .faculty-contact a {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+
+    .faculty-contact a:hover {
+      background-color: #b42944;
+      color: white;
+    }
+
+    .department-section {
+      margin-bottom: 40px;
+    }
+
+    .department-title {
+      font-size: 24px;
+      color: #b42944;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      .faculty-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .department-tabs {
+        gap: 5px;
+      }
+
+      .dept-tab {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-container">
+    <!-- Header container: will be loaded using JavaScript -->
+    <div id="header-container"></div>
+
+    <!-- Page title section -->
+    <div class="page-title">
+      <div class="container">
+        <h1>Our Faculty</h1>
+      </div>
+    </div>
+
+    <!-- Main content section -->
+    <section class="page-content">
+      <div class="container">
+        <div class="department-tabs">
+          <div class="dept-tab active" data-dept="all">All Departments</div>
+          <div class="dept-tab" data-dept="science">Science</div>
+          <div class="dept-tab" data-dept="arts">Arts & Humanities</div>
+          <div class="dept-tab" data-dept="commerce">Commerce</div>
+          <div class="dept-tab" data-dept="computer">Computer Science</div>
+        </div>
+
+        <div class="department-section" id="science-dept">
+          <h2 class="department-title">Department of Science</h2>
+          <div class="faculty-grid">
+            <div class="faculty-card">
+              <div class="faculty-image">
+                <img src="https://ext.same-assets.com/2501078162/4178997792.jpeg" alt="Dr. Vasant Patil">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Dr. Vasant Patil</h3>
+                <p class="faculty-title">Associate Professor & HOD</p>
+                <p class="faculty-dept">Chemistry</p>
+                <div class="faculty-contact">
+                  <a href="mailto:vpatil@rbnbcollege.edu.in"><i class="fas fa-envelope"></i></a>
+                  <a href="#"><i class="fas fa-phone"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="faculty-card">
+              <div class="faculty-image">
+                <img src="https://ext.same-assets.com/2501078162/348664426.jpeg" alt="Dr. Sunita Deshmukh">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Dr. Sunita Deshmukh</h3>
+                <p class="faculty-title">Associate Professor</p>
+                <p class="faculty-dept">Physics</p>
+                <div class="faculty-contact">
+                  <a href="mailto:sdeshmukh@rbnbcollege.edu.in"><i class="fas fa-envelope"></i></a>
+                  <a href="#"><i class="fas fa-phone"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="faculty-card">
+              <div class="faculty-image">
+                <img src="https://ext.same-assets.com/2501078162/3369186498.jpeg" alt="Dr. Prakash Jadhav">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Dr. Prakash Jadhav</h3>
+                <p class="faculty-title">Assistant Professor</p>
+                <p class="faculty-dept">Mathematics</p>
+                <div class="faculty-contact">
+                  <a href="mailto:pjadhav@rbnbcollege.edu.in"><i class="fas fa-envelope"></i></a>
+                  <a href="#"><i class="fas fa-phone"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="department-section" id="arts-dept">
+          <h2 class="department-title">Department of Arts & Humanities</h2>
+          <div class="faculty-grid">
+            <div class="faculty-card">
+              <div class="faculty-image">
+                <img src="https://ext.same-assets.com/2501078162/680620851.jpeg" alt="Dr. Amol Gaikwad">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Dr. Amol Gaikwad</h3>
+                <p class="faculty-title">Associate Professor & HOD</p>
+                <p class="faculty-dept">English</p>
+                <div class="faculty-contact">
+                  <a href="mailto:agaikwad@rbnbcollege.edu.in"><i class="fas fa-envelope"></i></a>
+                  <a href="#"><i class="fas fa-phone"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="faculty-card">
+              <div class="faculty-image">
+                <img src="https://ext.same-assets.com/2501078162/3473280738.jpeg" alt="Dr. Snehal Kulkarni">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Dr. Snehal Kulkarni</h3>
+                <p class="faculty-title">Associate Professor</p>
+                <p class="faculty-dept">History</p>
+                <div class="faculty-contact">
+                  <a href="mailto:skulkarni@rbnbcollege.edu.in"><i class="fas fa-envelope"></i></a>
+                  <a href="#"><i class="fas fa-phone"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer container: will be loaded using JavaScript -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Department tab functionality
+      const tabs = document.querySelectorAll('.dept-tab');
+      const departments = document.querySelectorAll('.department-section');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Update active tab
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const dept = tab.getAttribute('data-dept');
+
+          // Show/hide departments based on selection
+          if (dept === 'all') {
+            departments.forEach(d => d.style.display = 'block');
+          } else {
+            departments.forEach(d => {
+              if (d.id.includes(dept)) {
+                d.style.display = 'block';
+              } else {
+                d.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

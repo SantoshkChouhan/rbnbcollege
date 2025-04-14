@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autonomy - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur</title>
+  <meta name="description" content="Autonomy - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/highlight.css">
+  <!-- Load Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* Autonomy page specific styles */
+    .page-title {
+      background-color: #f5f5f5;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 32px;
+      color: #333;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .autonomy-banner {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://ext.same-assets.com/2501078162/3369186498.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-bottom: 40px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .autonomy-banner-content {
+      text-align: center;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .autonomy-banner h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .autonomy-banner p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+      color: #333;
+    }
+
+    .autonomy-section {
+      margin-bottom: 40px;
+    }
+
+    .autonomy-feature {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      gap: 30px;
+    }
+
+    .feature-item {
+      flex: 1;
+      min-width: 300px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background-color: #f5f5f5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      color: #b42944;
+      font-size: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover .feature-icon {
+      background-color: #b42944;
+      color: white;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .feature-desc {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .autonomy-timeline {
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background-color: #ddd;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(even) {
+      justify-content: flex-end;
+    }
+
+    .timeline-content {
+      width: 45%;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      position: relative;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #b42944;
+      border-radius: 50%;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .timeline-date {
+      display: inline-block;
+      background-color: #b42944;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .timeline-desc {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 991px) {
+      .timeline-line {
+        left: 20px;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 50px;
+      }
+
+      .timeline-content {
+        width: 100%;
+      }
+
+      .timeline-dot {
+        left: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .autonomy-banner h2 {
+        font-size: 28px;
+      }
+
+      .autonomy-banner p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-container">
+    <!-- Header container: will be loaded using JavaScript -->
+    <div id="header-container"></div>
+
+    <!-- Page title section -->
+    <div class="page-title">
+      <div class="container">
+        <h1>College Autonomy</h1>
+      </div>
+    </div>
+
+    <!-- Main content section -->
+    <section class="page-content">
+      <div class="container">
+        <div class="autonomy-banner">
+          <div class="autonomy-banner-content">
+            <h2>Excellence Through Academic Autonomy</h2>
+            <p>R. B. Narayanrao Borawake College was granted academic autonomy in 2018, empowering us to design and implement innovative curricula tailored to the needs of our students and society.</p>
+          </div>
+        </div>
+
+        <div class="autonomy-section">
+          <h2 class="section-title">What is Autonomy?</h2>
+          <p>Academic autonomy refers to the freedom granted to educational institutions to design their own curricula, implement teaching methods, conduct assessments, and award degrees, all within the broad framework provided by the affiliating university. This freedom allows institutions to be more responsive to the changing needs of students, industry, and society.</p>
+          <p>R. B. Narayanrao Borawake College was granted autonomy by the University Grants Commission (UGC) and Savitribai Phule Pune University in 2018, making it one of the select institutions in the region to enjoy this status. This recognition came as a result of the college's consistent academic excellence, robust infrastructure, qualified faculty, and commitment to quality education.</p>
+        </div>
+
+        <div class="autonomy-section">
+          <h2 class="section-title">Benefits of Autonomy</h2>
+          <div class="autonomy-feature">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <h3 class="feature-title">Curriculum Design</h3>
+              <p class="feature-desc">Freedom to design and regularly update curricula that is relevant, contemporary and aligned with industry needs. We can incorporate emerging fields and technologies promptly without bureaucratic delays.</p>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <h3 class="feature-title">Innovative Teaching</h3>
+              <p class="feature-desc">Flexibility to implement innovative teaching methodologies, experiential learning approaches, and interdisciplinary studies that enhance the learning experience of students.</p>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <h3 class="feature-title">Assessment Systems</h3>
+              <p class="feature-desc">Authority to design and implement comprehensive evaluation systems that assess not just theoretical knowledge but also practical skills, critical thinking, and application abilities.</p>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h3 class="feature-title">Industry Collaborations</h3>
+              <p class="feature-desc">Enhanced ability to forge meaningful collaborations with industry partners, leading to internships, projects, and employment opportunities for students.</p>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="feature-title">Student Development</h3>
+              <p class="feature-desc">Focused approach to holistic student development through specialized courses, skill enhancement programs, and value-added certifications that improve employability.</p>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3 class="feature-title">Global Perspective</h3>
+              <p class="feature-desc">Ability to incorporate global educational trends and practices, preparing students to compete and excel in an increasingly internationalized job market.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="autonomy-section">
+          <h2 class="section-title">Autonomy Journey Timeline</h2>
+          <div class="autonomy-timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2016</span>
+                <h3 class="timeline-title">Initial Application</h3>
+                <p class="timeline-desc">College submitted the initial application for autonomy to UGC and Savitribai Phule Pune University after careful preparation and meeting all eligibility criteria.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2017</span>
+                <h3 class="timeline-title">UGC Expert Committee Visit</h3>
+                <p class="timeline-desc">UGC Expert Committee visited the college to assess infrastructure, faculty qualifications, academic achievements, and administrative capabilities.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">May 2018</span>
+                <h3 class="timeline-title">Autonomy Status Granted</h3>
+                <p class="timeline-desc">UGC and Savitribai Phule Pune University granted autonomous status to the college for an initial period of 10 years, recognizing its academic excellence.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">August 2018</span>
+                <h3 class="timeline-title">Autonomous Governance Structure</h3>
+                <p class="timeline-desc">Establishment of Academic Council, Board of Studies for each department, and other statutory bodies as per UGC guidelines.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2019</span>
+                <h3 class="timeline-title">First Autonomous Batch</h3>
+                <p class="timeline-desc">Implementation of the first set of autonomous curricula and admission of the first batch of students under the autonomous system.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2022</span>
+                <h3 class="timeline-title">Curriculum Revision</h3>
+                <p class="timeline-desc">Comprehensive revision of all autonomous curricula based on feedback from stakeholders and to align with NEP 2020 guidelines.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer container: will be loaded using JavaScript -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

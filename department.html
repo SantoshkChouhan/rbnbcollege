@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Departments - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur</title>
+  <meta name="description" content="Departments - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/highlight.css">
+  <!-- Load Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* Department page specific styles */
+    .page-title {
+      background-color: #f5f5f5;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 32px;
+      color: #333;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .department-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .department-card {
+      position: relative;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 350px;
+    }
+
+    .department-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .department-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .department-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .department-card:hover .department-image img {
+      transform: scale(1.05);
+    }
+
+    .department-info {
+      padding: 20px;
+    }
+
+    .department-name {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .department-desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .department-icons {
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .dept-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+
+    .dept-icon:hover {
+      background-color: #b42944;
+      color: white;
+    }
+
+    .dept-button {
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: #b42944;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dept-button:hover {
+      background-color: #8e1f33;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+      color: #333;
+    }
+
+    .faculty-tab {
+      padding: 10px 15px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .faculty-tab:hover {
+      background-color: #e0e0e0;
+    }
+
+    .faculty-tab.active {
+      background-color: #b42944;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .department-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-container">
+    <!-- Header container: will be loaded using JavaScript -->
+    <div id="header-container"></div>
+
+    <!-- Page title section -->
+    <div class="page-title">
+      <div class="container">
+        <h1>Our Departments</h1>
+      </div>
+    </div>
+
+    <!-- Main content section -->
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title">Academic Departments</h2>
+
+        <div class="faculty-tabs">
+          <span class="faculty-tab active" data-group="all">All</span>
+          <span class="faculty-tab" data-group="science">Science</span>
+          <span class="faculty-tab" data-group="arts">Arts & Humanities</span>
+          <span class="faculty-tab" data-group="commerce">Commerce & Management</span>
+          <span class="faculty-tab" data-group="computer">Computer Science</span>
+        </div>
+
+        <div class="department-grid">
+          <!-- Science Departments -->
+          <div class="department-card" data-category="science">
+            <div class="department-image">
+              <img src="https://ext.same-assets.com/2501078162/3068551604.jpeg" alt="Chemistry Department">
+            </div>
+            <div class="department-info">
+              <h3 class="department-name">Department of Chemistry</h3>
+              <p class="department-desc">The Department of Chemistry offers undergraduate and postgraduate programs with state-of-the-art laboratory facilities and research opportunities.</p>
+              <div class="department-icons">
+                <a href="#" class="dept-icon" title="Faculty"><i class="fas fa-user-tie"></i></a>
+                <a href="#" class="dept-icon" title="Research"><i class="fas fa-flask"></i></a>
+                <a href="#" class="dept-icon" title="Courses"><i class="fas fa-book"></i></a>
+              </div>
+              <a href="#" class="dept-button">View Details</a>
+            </div>
+          </div>
+
+          <div class="department-card" data-category="science">
+            <div class="department-image">
+              <img src="https://ext.same-assets.com/2501078162/4178997792.jpeg" alt="Physics Department">
+            </div>
+            <div class="department-info">
+              <h3 class="department-name">Department of Physics</h3>
+              <p class="department-desc">Offering comprehensive programs in theoretical and experimental physics with modern laboratories and research centers.</p>
+              <div class="department-icons">
+                <a href="#" class="dept-icon" title="Faculty"><i class="fas fa-user-tie"></i></a>
+                <a href="#" class="dept-icon" title="Research"><i class="fas fa-flask"></i></a>
+                <a href="#" class="dept-icon" title="Courses"><i class="fas fa-book"></i></a>
+              </div>
+              <a href="#" class="dept-button">View Details</a>
+            </div>
+          </div>
+
+          <div class="department-card" data-category="science">
+            <div class="department-image">
+              <img src="https://ext.same-assets.com/2501078162/348664426.jpeg" alt="Mathematics Department">
+            </div>
+            <div class="department-info">
+              <h3 class="department-name">Department of Mathematics</h3>
+              <p class="department-desc">Excellence in pure and applied mathematics education with focus on problem-solving and analytical thinking.</p>
+              <div class="department-icons">
+                <a href="#" class="dept-icon" title="Faculty"><i class="fas fa-user-tie"></i></a>
+                <a href="#" class="dept-icon" title="Research"><i class="fas fa-flask"></i></a>
+                <a href="#" class="dept-icon" title="Courses"><i class="fas fa-book"></i></a>
+              </div>
+              <a href="#" class="dept-button">View Details</a>
+            </div>
+          </div>
+
+          <!-- Arts Departments -->
+          <div class="department-card" data-category="arts">
+            <div class="department-image">
+              <img src="https://ext.same-assets.com/2501078162/680620851.jpeg" alt="English Department">
+            </div>
+            <div class="department-info">
+              <h3 class="department-name">Department of English</h3>
+              <p class="department-desc">Dedicated to the study of English literature, language and linguistics with emphasis on critical thinking and communication skills.</p>
+              <div class="department-icons">
+                <a href="#" class="dept-icon" title="Faculty"><i class="fas fa-user-tie"></i></a>
+                <a href="#" class="dept-icon" title="Research"><i class="fas fa-flask"></i></a>
+                <a href="#" class="dept-icon" title="Courses"><i class="fas fa-book"></i></a>
+              </div>
+              <a href="#" class="dept-button">View Details</a>
+            </div>
+          </div>
+
+          <div class="department-card" data-category="arts">
+            <div class="department-image">
+              <img src="https://ext.same-assets.com/2501078162/3473280738.jpeg" alt="History Department">
+            </div>
+            <div class="department-info">
+              <h3 class="department-name">Department of History</h3>
+              <p class="department-desc">Exploring the rich historical narrative of India and the world through innovative teaching and research methodologies.</p>
+              <div class="department-icons">
+                <a href="#" class="dept-icon" title="Faculty"><i class="fas fa-user-tie"></i></a>
+                <a href="#" class="dept-icon" title="Research"><i class="fas fa-flask"></i></a>
+                <a href="#" class="dept-icon" title="Courses"><i class="fas fa-book"></i></a>
+              </div>
+              <a href="#" class="dept-button">View Details</a>
+            </div>
+          </div>
+
+          <!-- Computer Science Department -->
+          <div class="department-card" data-category="computer">
+            <div class="department-image">
+              <img src="https://ext.same-assets.com/2501078162/3369186498.jpeg" alt="Computer Science Department">
+            </div>
+            <div class="department-info">
+              <h3 class="department-name">Department of Computer Science</h3>
+              <p class="department-desc">Cutting-edge education in computer science with focus on programming, data structures, algorithms, and modern technologies.</p>
+              <div class="department-icons">
+                <a href="#" class="dept-icon" title="Faculty"><i class="fas fa-user-tie"></i></a>
+                <a href="#" class="dept-icon" title="Research"><i class="fas fa-flask"></i></a>
+                <a href="#" class="dept-icon" title="Courses"><i class="fas fa-book"></i></a>
+              </div>
+              <a href="#" class="dept-button">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer container: will be loaded using JavaScript -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Department filtering functionality
+      const tabs = document.querySelectorAll('.faculty-tab');
+      const departments = document.querySelectorAll('.department-card');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Update active tab
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const group = tab.getAttribute('data-group');
+
+          // Show/hide departments based on selection
+          if (group === 'all') {
+            departments.forEach(d => d.style.display = 'block');
+          } else {
+            departments.forEach(d => {
+              if (d.getAttribute('data-category') === group) {
+                d.style.display = 'block';
+              } else {
+                d.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

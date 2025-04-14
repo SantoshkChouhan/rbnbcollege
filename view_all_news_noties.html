@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All News & Notices - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur</title>
+  <meta name="description" content="News and Notices - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <!-- Load Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* Additional styles for the all news page */
+    .all-news-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .all-news-header {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .all-news-header h1 {
+      color: #333;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .all-news-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #419f7b, #cf1f29);
+      border-radius: 3px;
+    }
+
+    .news-filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .filter-options {
+      display: flex;
+      gap: 15px;
+    }
+
+    .filter-btn {
+      padding: 8px 15px;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background-color: #419f7b;
+      color: white;
+      border-color: #419f7b;
+    }
+
+    .search-filter {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-filter input {
+      padding: 8px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      width: 250px;
+    }
+
+    .search-filter button {
+      padding: 8px 15px;
+      background-color: #cf1f29;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .search-filter button:hover {
+      background-color: #a51621;
+    }
+
+    .all-notices-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .all-notice-item {
+      padding: 15px;
+      border-left: 4px solid #419f7b;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .all-notice-item:hover {
+      background-color: #f1f1f1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .all-notice-item.new {
+      border-left-color: #cf1f29;
+    }
+
+    .notice-content {
+      flex: 1;
+    }
+
+    .notice-title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .notice-title i {
+      color: #cf1f29;
+      margin-right: 8px;
+    }
+
+    .notice-meta {
+      display: flex;
+      color: #777;
+      font-size: 13px;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .notice-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .notice-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #cf1f29;
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      animation: bounce 1s infinite alternate;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 30px;
+    }
+
+    .pagination a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      color: #555;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .pagination a:hover, .pagination a.active {
+      background-color: #419f7b;
+      color: white;
+      border-color: #419f7b;
+    }
+
+    .pagination .prev, .pagination .next {
+      width: auto;
+      padding: 0 15px;
+    }
+
+    .pagination .dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+    }
+
+    @media (max-width: 768px) {
+      .news-filter {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .filter-options {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+
+      .search-filter {
+        width: 100%;
+      }
+
+      .search-filter input {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-container">
+    <!-- Top navigation bar -->
+    <div class="top-nav">
+      <div class="container">
+        <ul class="top-nav-links">
+          <li><a href="Alumni.html">Alumni</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+          <li><a href="admin/login.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+        </ul>
+        <div class="search-box">
+          <input type="text" placeholder="Search..." id="search-input">
+          <button type="button" id="search-btn">Go</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header section with logo and title (hidden on mobile) -->
+    <header>
+      <div class="container">
+        <div class="logo-section">
+          <a href="index.html" class="logo">
+            <img src="https://ext.same-assets.com/2501078162/3682447846.png" alt="RBNB College Logo">
+          </a>
+          <a href="index.html" class="college-title-wrapper">
+            <div class="college-title">
+              <h5>Rayat Shikshan Sanstha's</h5>
+              <h1>R.B. Narayanrao Borawake College<span class="college-highlight">(Autonomous)</span></h1>
+              <h2>Shrirampur</h2>
+              <p>Affiliated To Savitribai Phule Pune University - [Pu/An/As/02/(1960)] (Jr./Hsc/Id.No.-J-12.14001)</p>
+              <p class="certification">NAAC Accredited <span class="grade-highlight">'A+'</span> Grade College (CGPA-3.44) | ISO 9001:2015 Certified</p>
+            </div>
+          </a>
+          <div class="founder-image">
+            <img src="https://ext.same-assets.com/2501078162/2023698141.png" alt="Founder Image">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main navigation menu -->
+    <nav class="main-nav">
+      <div class="container">
+        <div class="mobile-nav-title">
+          <img src="https://ext.same-assets.com/2501078162/3682447846.png" alt="RBNB Logo">
+          <span>R.B.N.B. College</span>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="about-us.html">ABOUT</a></li>
+          <li><a href="#">ADMINISTRATOR</a></li>
+          <li><a href="#">FACULTY</a></li>
+          <li><a href="#">DEPARTMENT</a></li>
+          <li><a href="research.html">RESEARCH</a></li>
+          <li><a href="students.html">STUDENTS</a></li>
+          <li><a href="nep_syllabus.html">NEP 2020</a></li>
+          <li><a href="#">NIRF</a></li>
+          <li><a href="IQAC.html">IQAC</a></li>
+          <li><a href="#">AUTONOMY</a></li>
+          <li><a href="#">EVENTS</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- All News/Notices Content -->
+    <section class="all-news-container">
+      <div class="all-news-header">
+        <h1>News & Notices</h1>
+      </div>
+
+      <div class="news-filter">
+        <div class="filter-options">
+          <button class="filter-btn active">All</button>
+          <button class="filter-btn">News</button>
+          <button class="filter-btn">Notices</button>
+          <button class="filter-btn">Events</button>
+          <button class="filter-btn">Admissions</button>
+          <button class="filter-btn">Exams</button>
+        </div>
+        <div class="search-filter">
+          <input type="text" placeholder="Search news & notices...">
+          <button><i class="fas fa-search"></i> Search</button>
+        </div>
+      </div>
+
+      <div class="all-notices-list">
+        <!-- Notice 1 -->
+        <div class="all-notice-item new">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-bell"></i> IMPORTANT: Admissions Open for Academic Year 2024-2025</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 09/04/2024</span>
+              <span><i class="far fa-folder"></i> Admissions</span>
+              <span><i class="fas fa-download"></i> <a href="#">Download PDF</a></span>
+            </div>
+          </div>
+          <span class="notice-badge">NEW</span>
+        </div>
+
+        <!-- Notice 2 -->
+        <div class="all-notice-item">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-file-alt"></i> EXAM FORM NOTICE</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 08/04/2024</span>
+              <span><i class="far fa-folder"></i> Exams</span>
+              <span><i class="fas fa-download"></i> <a href="Document10.pdf">Download PDF</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice 3 -->
+        <div class="all-notice-item">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-graduation-cap"></i> S.Y.U.G. C.C. COURSE EXAM</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 05/04/2024</span>
+              <span><i class="far fa-folder"></i> Exams</span>
+              <span><i class="fas fa-download"></i> <a href="Document292.pdf">Download PDF</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice 4 -->
+        <div class="all-notice-item">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-file-alt"></i> SECOND YEAR BACHELOR OF ARTS (2019 PATTERN)(CHOICE BASED CREDIT SYSTEM)</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 02/04/2024</span>
+              <span><i class="far fa-folder"></i> Academics</span>
+              <span><i class="fas fa-download"></i> <a href="Second-YEAR-BACHELOR-OF-ARTS.pdf">Download PDF</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice 5 -->
+        <div class="all-notice-item new">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-calendar-alt"></i> Faculty Development Program - June 15-20, 2024</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 08/04/2024</span>
+              <span><i class="far fa-folder"></i> Events</span>
+              <span><i class="fas fa-download"></i> <a href="#">Download PDF</a></span>
+            </div>
+          </div>
+          <span class="notice-badge">NEW</span>
+        </div>
+
+        <!-- Notice 6 -->
+        <div class="all-notice-item">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-music"></i> College Annual Day Celebrations - May 25, 2024</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 01/04/2024</span>
+              <span><i class="far fa-folder"></i> Events</span>
+              <span><i class="fas fa-download"></i> <a href="#">Download PDF</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice 7 -->
+        <div class="all-notice-item">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-rupee-sign"></i> REMINDER: Last Date for Fee Payment - April 30, 2024</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 28/03/2024</span>
+              <span><i class="far fa-folder"></i> Administration</span>
+              <span><i class="fas fa-download"></i> <a href="#">Download PDF</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice 8 -->
+        <div class="all-notice-item">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-briefcase"></i> Summer Internship Opportunities for Students - Apply Now</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 25/03/2024</span>
+              <span><i class="far fa-folder"></i> Placements</span>
+              <span><i class="fas fa-download"></i> <a href="#">Download PDF</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice 9 -->
+        <div class="all-notice-item new">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-award"></i> NAAC Peer Team Visit - June 5-7, 2024</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 07/04/2024</span>
+              <span><i class="far fa-folder"></i> Administration</span>
+              <span><i class="fas fa-download"></i> <a href="#">Download PDF</a></span>
+            </div>
+          </div>
+          <span class="notice-badge">NEW</span>
+        </div>
+
+        <!-- Notice 10 -->
+        <div class="all-notice-item">
+          <div class="notice-content">
+            <div class="notice-title"><i class="fas fa-robot"></i> Guest Lecture Series on AI & Data Science - Starting May 10</div>
+            <div class="notice-meta">
+              <span><i class="far fa-calendar-alt"></i> 20/03/2024</span>
+              <span><i class="far fa-folder"></i> Academics</span>
+              <span><i class="fas fa-download"></i> <a href="#">Download PDF</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" class="prev"><i class="fas fa-chevron-left"></i> Prev</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <span class="dots">...</span>
+        <a href="#">10</a>
+        <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-sections">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="about-us.html">About</a></li>
+              <li><a href="#">Administrator</a></li>
+              <li><a href="#">Faculty</a></li>
+              <li><a href="#">Campuses</a></li>
+              <li><a href="#">Admissions</a></li>
+              <li><a href="#">Department</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Students</a></li>
+              <li><a href="#">Exam</a></li>
+              <li><a href="#">Event</a></li>
+              <li><a href="Alumni.html">Alumni</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>About</h3>
+            <p><a href="http://www.rayatshikshan.edu/">RAYAT SHIKSHAN SANSTHA'S</a></p>
+            <p>R. B. NARAYANRAO BORAWAKE COLLEGE,<br>
+               Shrirampur Estd. 1960</p>
+            <p>Affiliated to Savitribai Phule Pune University</p>
+            <p><strong>NAAC Accredited 'A+' Grade College with 3.44 CGPA</strong></p>
+            <p>ISO 9001:2015 CERTIFIED</p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>R. B. NARAYANRAO BORAWAKE COLLEGE, Shrirampur<br>
+               Maharashtra, INDIA</p>
+            <p>Pin Code: 413709</p>
+            <p>Phone : +91 02422-222347</p>
+            <p>Fax : +91 02422-222347</p>
+            <p>E-mail : rbnbcollege@gmail.com</p>
+
+            <h3 class="social-heading">Social wall</h3>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/groups/rbnbcollege"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/rnbscolleg?mx=2"><i class="fab fa-twitter"></i></a>
+              <a href="https://in.linkedin.com/company/rbnb-college/"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/rbnb_college_campus/"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Campus Location</h3>
+            <div class="map">
+              <img src="https://ext.same-assets.com/2501078162/2043349370.png" alt="Campus Map">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="privacy-policy">
+        <a href="privacy-policy.html">PRIVACY POLICY</a>
+      </div>
+
+      <div class="copyright">
+        <p>© 2024, R. B. Narayanrao Borawake College,(Autonomous) Shrirampur</p>
+        <p class="last-updated">Last Updated: 4/9/2025, 12:41:34 PM</p>
+      </div>
+    </footer>
+
+    <!-- Caution Notice Button -->
+    <div class="caution-notice">
+      <a href="#">CAUTION NOTICE</a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <a href="#"><img src="https://ext.same-assets.com/2501078162/1142616965.jpeg" alt="Top"></a>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+  <script>
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+
+          // Add active class to clicked button
+          this.classList.add('active');
+
+          // Filter logic would go here in a real implementation
+          const filterType = this.textContent.toLowerCase();
+          console.log('Filtering by:', filterType);
+
+          // For demo purposes, just show an alert
+          if (filterType !== 'all') {
+            alert(`Filtering notices by: ${filterType}`);
+          }
+        });
+      });
+
+      // Search functionality
+      const searchButton = document.querySelector('.search-filter button');
+      const searchInput = document.querySelector('.search-filter input');
+
+      searchButton.addEventListener('click', function() {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+          alert(`Searching for: ${searchTerm}`);
+        }
+      });
+
+      // Allow search on Enter key press
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && this.value.trim()) {
+          alert(`Searching for: ${this.value.trim()}`);
+        }
+      });
+
+      // Pagination links
+      const paginationLinks = document.querySelectorAll('.pagination a');
+
+      paginationLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          // Remove active class from all links
+          paginationLinks.forEach(lnk => lnk.classList.remove('active'));
+
+          // Add active class to clicked link if it's a number
+          if (!this.classList.contains('prev') && !this.classList.contains('next')) {
+            this.classList.add('active');
+          }
+
+          // Alert which page was clicked
+          const pageText = this.classList.contains('prev') ? 'Previous Page' :
+                          this.classList.contains('next') ? 'Next Page' :
+                          `Page ${this.textContent}`;
+
+          alert(`Navigating to: ${pageText}`);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

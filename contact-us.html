@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur</title>
+  <meta name="description" content="Contact Us - R. B. Narayanrao Borawake College,(Autonomous) Shrirampur">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/highlight.css">
+  <!-- Load Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* Additional styles for contact page */
+    .page-title {
+      background-color: #f5f5f5;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 32px;
+      color: #999;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .contact-section {
+      padding: 0 0 60px;
+    }
+
+    .contact-title {
+      color: #b42944;
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -15px;
+    }
+
+    .contact-item {
+      flex: 0 0 calc(25% - 30px);
+      margin: 0 15px 30px;
+      text-align: center;
+    }
+
+    .contact-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      color: #b42944;
+      font-size: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover .contact-icon {
+      background-color: #b42944;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .contact-label {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .contact-text {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .contact-map {
+      margin-top: 40px;
+      height: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .contact-form-section {
+      background-color: #f5f5f5;
+      padding: 60px 0;
+    }
+
+    .contact-form {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+    }
+
+    .form-group {
+      flex: 0 0 calc(50% - 30px);
+      margin: 0 15px 20px;
+    }
+
+    .form-group.full-width {
+      flex: 0 0 calc(100% - 30px);
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Open Sans', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #b42944;
+      outline: none;
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #b42944;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #951e36;
+    }
+
+    @media (max-width: 991px) {
+      .contact-item {
+        flex: 0 0 calc(50% - 30px);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .contact-item {
+        flex: 0 0 calc(100% - 30px);
+      }
+
+      .form-group {
+        flex: 0 0 calc(100% - 30px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-container">
+    <!-- Header container will be loaded using JavaScript -->
+    <div id="header-container"></div>
+
+    <!-- Page title section -->
+    <div class="page-title">
+      <div class="container">
+        <h1>Contact Us</h1>
+      </div>
+    </div>
+
+    <!-- Contact Information Section -->
+    <section class="contact-section">
+      <div class="container">
+        <h2 class="contact-title">Get in Touch With Us</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-label">Our Location</div>
+            <div class="contact-text">
+              R. B. Narayanrao Borawake College,<br>
+              Shrirampur, Dist. Ahmednagar,<br>
+              Maharashtra, India - 413709
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-label">Phone Number</div>
+            <div class="contact-text">
+              College Office: +91 2422 222 547<br>
+              Admission Cell: +91 2422 222 548<br>
+              Examination: +91 2422 222 549
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-label">Email Address</div>
+            <div class="contact-text">
+              General Enquiries:<br>
+              principal@rbnbcollege.edu.in<br>
+              Admissions:<br>
+              admissions@rbnbcollege.edu.in
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-label">Working Hours</div>
+            <div class="contact-text">
+              Monday - Saturday<br>
+              8:00 AM - 5:00 PM<br>
+              Closed on Sundays & Holidays
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.4123329605403!2d74.65450867476696!3d19.1846789516692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdcae71e1252615%3A0x15b118a66106fac4!2sRBNB%20College%20Shrirampur!5e0!3m2!1sen!2sin!4v1712651309023!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="R.B.N.B. College Location"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+      <div class="container">
+        <h2 class="contact-title">Send Us a Message</h2>
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" placeholder="Your Phone Number">
+            </div>
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" class="form-control" placeholder="Message Subject" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea id="message" class="form-control" placeholder="Write your message here..." required></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full-width" style="text-align: center;">
+              <button type="submit" class="submit-btn">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer container will be loaded using JavaScript -->
+    <div id="footer-container"></div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
